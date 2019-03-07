@@ -18,6 +18,8 @@ public class Category {
 
     private String name;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category",
+               fetch = FetchType.LAZY,
+               cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Article> articles;
 }

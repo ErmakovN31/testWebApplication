@@ -22,6 +22,8 @@ public class Company {
 
     private String address;
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company",
+               fetch = FetchType.LAZY,
+               cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Article> articles;
 }
