@@ -1,20 +1,18 @@
-package ru.ermakovn31.dao.service;
+package ru.ermakovn31.spring.dao.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
-import ru.ermakovn31.dao.repository.CompanyRepository;
-import ru.ermakovn31.model.Company;
+import ru.ermakovn31.spring.dao.repository.ICompanyRepository;
+import ru.ermakovn31.spring.model.Company;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 public class CompanyService implements ICompanyService {
 
     @Autowired
-    private CompanyRepository repository;
+    private ICompanyRepository repository;
 
     @Override
     public List<Company> findAll() {
@@ -27,11 +25,13 @@ public class CompanyService implements ICompanyService {
     }
 
     @Override
+    @Transactional
     public void save(Company company) {
         repository.save(company);
     }
 
     @Override
+    @Transactional
     public void remove(Company company) {
         repository.delete(company);
     }

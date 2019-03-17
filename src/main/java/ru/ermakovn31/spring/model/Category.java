@@ -1,4 +1,4 @@
-package ru.ermakovn31.model;
+package ru.ermakovn31.spring.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +20,6 @@ public class Category {
 
     @OneToMany(mappedBy = "category",
                fetch = FetchType.LAZY,
-               cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+               cascade = CascadeType.MERGE)
     private List<Article> articles;
 }

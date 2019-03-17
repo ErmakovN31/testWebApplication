@@ -1,6 +1,6 @@
-package ru.ermakovn31.dao.service;
+package ru.ermakovn31.spring.dao.service;
 
-import ru.ermakovn31.model.Category;
+import ru.ermakovn31.spring.model.Category;
 
 import java.util.List;
 

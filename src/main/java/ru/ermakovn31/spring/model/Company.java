@@ -1,13 +1,11 @@
-package ru.ermakovn31.model;
+package ru.ermakovn31.spring.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "appCompany")
 public class Company {
@@ -24,6 +22,6 @@ public class Company {
 
     @OneToMany(mappedBy = "company",
                fetch = FetchType.LAZY,
-               cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+               cascade = CascadeType.MERGE)
     private List<Article> articles;
 }

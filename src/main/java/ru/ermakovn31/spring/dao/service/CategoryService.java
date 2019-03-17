@@ -1,19 +1,18 @@
-package ru.ermakovn31.dao.service;
+package ru.ermakovn31.spring.dao.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.ermakovn31.dao.repository.CategoryRepository;
-import ru.ermakovn31.model.Category;
+import ru.ermakovn31.spring.dao.repository.ICategoryRepository;
+import ru.ermakovn31.spring.model.Category;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 public class CategoryService implements ICategoryService {
 
     @Autowired
-    private CategoryRepository repository;
+    private ICategoryRepository repository;
 
     @Override
     public List<Category> findAll() {
@@ -26,11 +25,13 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
+    @Transactional
     public void save(Category category) {
         repository.save(category);
     }
 
     @Override
+    @Transactional
     public void remove(Category category) {
         repository.delete(category);
     }

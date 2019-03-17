@@ -1,4 +1,4 @@
-package ru.ermakovn31.model;
+package ru.ermakovn31.spring.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -29,6 +29,7 @@ public class Article {
 
     private String name;
 
+    @Column(columnDefinition = "LONGTEXT")
     private String content;
 
     private String phone;

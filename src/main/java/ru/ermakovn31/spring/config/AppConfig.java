@@ -1,4 +1,4 @@
-package ru.ermakovn31;
+package ru.ermakovn31.spring.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +18,7 @@ import java.util.Properties;
 
 @Configuration
 @ComponentScan("ru.ermakovn31")
-@EnableJpaRepositories("ru.ermakovn31.dao.repository")
+@EnableJpaRepositories("ru.ermakovn31.spring.dao.repository")
 @EnableTransactionManagement
 @PropertySource("classpath:mysql.properties")
 public class AppConfig {
@@ -47,7 +47,7 @@ public class AppConfig {
         final LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setDataSource(dataSource);
         factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        factoryBean.setPackagesToScan("ru.ermakovn31.model");
+        factoryBean.setPackagesToScan("ru.ermakovn31.spring.model");
         final Properties jpaProperties = new Properties();
         jpaProperties.put("hibernate.dialect", dialect);
         jpaProperties.put("hibernate.show_sql", showSql);
