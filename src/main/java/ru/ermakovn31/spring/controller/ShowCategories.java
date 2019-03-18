@@ -19,6 +19,7 @@ public class ShowCategories {
     public String getCategories(final Model model) {
         final List<Category> categories = categoryService.findAll();
         model.addAttribute("categories", categories);
+//        model.addAttribute("link", "showCategories");
         return "categories/showCategories";
     }
 }

@@ -1,13 +1,12 @@
 package ru.ermakovn31.spring.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
-@Getter
-@Setter
+@Data
 @Table(name = "appArticle")
 @NamedQueries({@NamedQuery(name = "Article.findAll", query = "SELECT a FROM Article a"),
                @NamedQuery(name = "Article.findById", query = "SELECT a FROM Article a WHERE a.id=:id")})
@@ -27,8 +26,10 @@ public class Article {
     @JoinColumn(name = "company_id")
     private Company company;
 
+    @Size(min = 7, max = 100, message="{validation.name.size}")
     private String name;
 
+    @Size(min = 30, message="{validation.content.size}")
     @Column(columnDefinition = "LONGTEXT")
     private String content;
 
