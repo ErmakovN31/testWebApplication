@@ -1,4 +1,4 @@
-package ru.ermakovn31.spring.controller;
+package ru.ermakovn31.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,6 @@ public class ShowCategories {
     public String getCategories(final Model model) {
         final List<Category> categories = categoryService.findAll();
         model.addAttribute("categories", categories);
-//        model.addAttribute("link", "showCategories");
         return "categories/showCategories";
     }
 }

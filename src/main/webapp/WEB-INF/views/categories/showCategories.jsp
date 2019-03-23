@@ -5,7 +5,7 @@
 <div class="list-group">
     <c:if test="${not empty categories}">
         <c:forEach items="${categories}" var="category">
-            <a href="/showArticles-${category.id}" class="list-group-item list-group-item-action">${category.name}</a>
+            <a href="${contextPath}/showArticles-${category.id}" class="list-group-item list-group-item-action">${category.name}</a>
         </c:forEach>
     </c:if>
 </div>

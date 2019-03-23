@@ -1,0 +1,12 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition extends="default" name="login">
+        <put-attribute name="content" value="/WEB-INF/views/form/login.jsp" />
+        <put-attribute name="link" value="login" />
+    </definition>
+    <definition extends="default" name="register">
+        <put-attribute name="content" value="/WEB-INF/views/form/register.jsp" />
+        <put-attribute name="link" value="register" type="string" />
+    </definition>
+</tiles-definitions>

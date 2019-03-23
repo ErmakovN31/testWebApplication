@@ -1,5 +1,6 @@
 package ru.ermakovn31.spring.dao.service;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import ru.ermakovn31.spring.model.Article;
 import ru.ermakovn31.spring.model.Category;
 
@@ -12,8 +13,10 @@ public interface IArticleService {
 
     Optional<Article> findById(Long id);
 
+    @PreAuthorize("hasAuthority('admin') or hasAuthority('user')")
     void save(Article article);
 
+    @PreAuthorize("hasAuthority('admin')")
     void remove(Article article);
 
     List<Article> findByCategory(Category category);

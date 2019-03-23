@@ -15,7 +15,7 @@
 
 <script src="${resPath}/assets/ckeditor/ckeditor.js"></script>
 
-<form:form method="POST" action="/saveArticle" modelAttribute="article">
+<form:form method="POST" action="${contextPath}/saveArticle" modelAttribute="article">
     <div class="form-group">
         <form:hidden path="id"/>
         <label>${labelTitle}</label>
@@ -52,7 +52,7 @@
     <button type="submit" class="btn btn-primary">${labelSave}</button>
 </form:form>
 <c:if test="${not empty message}">
-    <span class="error">${message}</span>
+    <span class="error" style="color: red">${message}</span>
 </c:if>
 
 <script type="text/javascript">

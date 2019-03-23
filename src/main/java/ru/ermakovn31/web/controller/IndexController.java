@@ -1,4 +1,4 @@
-package ru.ermakovn31.spring.controller;
+package ru.ermakovn31.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

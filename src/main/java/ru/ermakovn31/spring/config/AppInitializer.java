@@ -1,15 +1,17 @@
 package ru.ermakovn31.spring.config;
 
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import ru.ermakovn31.spring.config.security.SecurityConfig;
 
 import javax.servlet.Filter;
 
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { AppConfig.class };
+        return new Class[] { AppConfig.class, SecurityConfig.class };
     }
 
     @Override
@@ -28,6 +30,9 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
         characterEncodingFilter.setEncoding("UTF-8");
         characterEncodingFilter.setForceEncoding(true);
         HiddenHttpMethodFilter httpMethodFilter = new HiddenHttpMethodFilter();
-        return new Filter[]{characterEncodingFilter, httpMethodFilter};
+
+        OpenEntityManagerInViewFilter openEntityManagerFilter = new OpenEntityManagerInViewFilter();
+        openEntityManagerFilter.setEntityManagerFactoryBeanName("entityManagerFactory");
+        return new Filter[]{characterEncodingFilter, httpMethodFilter, openEntityManagerFilter};
     }
 }

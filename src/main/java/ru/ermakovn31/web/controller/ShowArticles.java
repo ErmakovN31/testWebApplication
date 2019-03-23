@@ -1,4 +1,4 @@
-package ru.ermakovn31.spring.controller;
+package ru.ermakovn31.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -41,7 +41,6 @@ public class ShowArticles {
     public String getArticles(final Model model) {
         final List<Article> articles = articleService.fetchFindAll();
         model.addAttribute("articles", articles);
-//        model.addAttribute("link", "showArticles");
         return "articles/showArticles";
     }
 
